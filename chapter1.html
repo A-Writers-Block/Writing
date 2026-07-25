@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 1: Man of the House — A Writer's Block</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- MENU OVERLAY -->
+  <div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+
+  <!-- SLIDE-OUT MENU -->
+  <nav class="menu-panel" id="menuPanel">
+    <div class="menu-header">
+      <span class="menu-header-title">Menu</span>
+      <button class="menu-close" onclick="closeMenu()" aria-label="Close menu">&times;</button>
+    </div>
+    <ul class="menu-nav">
+      <li><a href="chapter1.html" class="active">Chapter 1: Man of the House</a></li>
+      <li><a href="chapter2.html">Chapter 2: When in Hell, You Need a Friend</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="contact.html">Contact Me</a></li>
+    </ul>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <button class="menu-btn" onclick="openMenu()" aria-label="Open menu">
+        <span class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        Menu
+      </button>
+      <a href="index.html" class="site-title">A Writer's Block</a>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="poem-header">
+      <h2>Chapter 1: Man of the House</h2>
+    </div>
+
+    <div class="poem-body">
+      <div class="stanza">
+        <div class="line">Recite in the name of the lord who created,</div>
+        <div class="line">created man from a clinging substance — complicated,</div>
+        <div class="line">recite and your lord is the most generous,</div>
+        <div class="line">most generous,</div>
+        <div class="line">who taught by the pen, taught man what he knew not —</div>
+        <div class="line">gave us every lesson that we never knew we'd got.</div>
+      </div>
+
+      <div class="stanza">
+        <div class="line">This book is dedicated to my brother,</div>
+        <div class="line bold">Edward James Clevet — there will never be another.</div>
+        <div class="line">And care others are forged in darkness and held in fear,</div>
+        <div class="line">ours was different, ours was built right here —</div>
+        <div class="line">carved, shaped, then moulded in song,</div>
+        <div class="line">dance, heartache, laughter — we've been at it all along.</div>
+        <div class="line">Tears, smiles and moments of joy between the pain,</div>
+        <div class="line">the kind of memories you carry through the rain.</div>
+        <div class="line">What developed was a loyalty that never floundered,</div>
+        <div class="line">a trust that knows no betrayal, never countered,</div>
+        <div class="line">and a friendship that has stood at the gates</div>
+        <div class="line">and the test of time — through the worst of the worst of states.</div>
+      </div>
+
+      <div class="stanza">
+        <div class="line">Helped along the way with a double Irish malt whisky,</div>
+        <div class="line">not for good measure — nah, that was just the company we'd keep, see.</div>
+        <div class="line">The world was our teacher and the lessons hit us hard,</div>
+        <div class="line">bleak, even harsh, unfair — every hand a losing card.</div>
+        <div class="line">But whoever said life was fair? Nobody I've met.</div>
+        <div class="line">And that's a lesson in itself that I won't forget.</div>
+      </div>
+
+      <div class="stanza">
+        <div class="line">I am my brother's keeper — that's not a line, that's law,</div>
+        <div class="line">and may the gods always be at your side through every open door.</div>
+        <div class="line">And if they ever waver and abandon you and you find yourself alone,</div>
+        <div class="line">know that I will always come for you — that's carved into the bone.</div>
+        <div class="line">I will always be in your corner, in this life and the next,</div>
+        <div class="line">no hesitation, no conditions, no small print in the text.</div>
+      </div>
+
+      <div class="stanza">
+        <div class="line italic">All my love,</div>
+        <div class="line bold">Richard — this one's for you.</div>
+      </div>
+
+      <div class="stanza">
+        <div class="line bold">"Stuck in the Middle with You"*</div>
+      </div>
+
+      <div class="poem-footnote">* Tribute to the song by Stealers Wheel</div>
+      <div class="poem-date">July, 2026</div>
+    </div>
+
+    <a href="index.html" class="back-link">← Back to Home</a>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; 2026 A Writer's Block | All Rights Reserved | <a href="terms-of-use.html">Terms of Use</a> | <a href="contact.html" class="footer-contact">Contact Me</a></span>
+      <span class="footer-logo">
+        <img src="AvId_Digital_Small.png" alt="Avid Digital">
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    function openMenu() {
+      document.getElementById('menuOverlay').classList.add('open');
+      document.getElementById('menuPanel').classList.add('open');
+    }
+    function closeMenu() {
+      document.getElementById('menuOverlay').classList.remove('open');
+      document.getElementById('menuPanel').classList.remove('open');
+    }
+  </script>
+</body>
+</html>

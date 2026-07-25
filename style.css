@@ -1,0 +1,507 @@
+/* ========================================
+   A Writer's Block — Global Styles
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-bg: #faf8f5;
+  --color-text: #2c2c2c;
+  --color-text-muted: #6b6b6b;
+  --color-accent: #4a5a3a;
+  --color-accent-hover: #3a4a2c;
+  --color-accent-light: #e8ece4;
+  --color-border: #d8d4cf;
+  --color-white: #ffffff;
+  --color-overlay: rgba(0, 0, 0, 0.4);
+  --font-display: 'Lora', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --max-width: 680px;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ---- HEADER ---- */
+.site-header {
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-white);
+  position: relative;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.site-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.site-title:hover {
+  color: var(--color-accent);
+}
+
+/* ---- MENU BUTTON ---- */
+.menu-btn {
+  position: absolute;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 0.4rem 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.menu-btn:hover {
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.menu-btn .hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.menu-btn .hamburger span {
+  display: block;
+  width: 16px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+  transition: all 0.2s;
+}
+
+/* ---- SLIDE-OUT MENU ---- */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--color-overlay);
+  z-index: 200;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  max-width: 80vw;
+  height: 100vh;
+  background: var(--color-white);
+  z-index: 300;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.1);
+}
+
+.menu-panel.open {
+  transform: translateX(0);
+}
+
+.menu-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-header-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.menu-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 0.25rem;
+  line-height: 1;
+}
+
+.menu-close:hover {
+  color: var(--color-text);
+}
+
+.menu-nav {
+  list-style: none;
+  padding: 0.75rem 0;
+  flex: 1;
+}
+
+.menu-nav li {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.menu-nav li:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+.menu-nav a {
+  display: block;
+  padding: 0.9rem 1.5rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: background-color 0.2s, padding-left 0.2s;
+}
+
+.menu-nav a:hover {
+  background-color: var(--color-accent-light);
+  padding-left: 2rem;
+  color: var(--color-accent);
+}
+
+.menu-nav a.active {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+/* ---- MAIN CONTENT ---- */
+main {
+  flex: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  width: 100%;
+}
+
+main h2 {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+main p {
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+/* ---- WELCOME PAGE ---- */
+.welcome-greeting {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--color-text);
+}
+
+.contact-cta {
+  display: inline-block;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.7rem 1.75rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-white);
+  background-color: var(--color-accent);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.contact-cta:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.welcome-sign-off {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+  color: var(--color-accent);
+}
+
+/* ---- POEM PAGES ---- */
+.poem-header {
+  margin-bottom: 2rem;
+}
+
+.poem-header h2 {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: var(--color-text);
+}
+
+.poem-body {
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding-top: 1.75rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.poem-body .stanza {
+  margin-bottom: 1.75rem;
+}
+
+.poem-body .line {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--color-text);
+}
+
+.poem-body .line.bold {
+  font-weight: 600;
+}
+
+.poem-body .line.italic {
+  font-style: italic;
+}
+
+.poem-footnote {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+  margin-top: 2rem;
+}
+
+.poem-date {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+  margin-top: 0.5rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 2.5rem;
+  font-size: 0.95rem;
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.back-link:hover {
+  color: var(--color-text);
+}
+
+/* ---- ABOUT PAGE ---- */
+.bio-note {
+  font-style: italic;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+/* ---- CONTACT FORM ---- */
+.contact-form {
+  margin-top: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+  margin-bottom: 0.35rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px var(--color-accent-light);
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-hint {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: 0.25rem;
+}
+
+.btn-send {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-white);
+  background-color: var(--color-accent);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 0.5rem;
+}
+
+.btn-send:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.form-success {
+  display: none;
+  padding: 1rem;
+  background: var(--color-accent-light);
+  border-radius: 4px;
+  color: var(--color-accent);
+  font-size: 0.95rem;
+  margin-top: 1rem;
+}
+
+/* ---- FOOTER ---- */
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  background: var(--color-white);
+  padding: 1.5rem;
+}
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.footer-inner a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.footer-inner a:hover {
+  color: var(--color-accent);
+}
+
+.footer-contact {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-contact:hover {
+  color: var(--color-accent-hover);
+}
+
+.footer-logo img {
+  height: 28px;
+  width: auto;
+  opacity: 0.7;
+}
+
+/* ---- MOBILE ---- */
+@media (max-width: 480px) {
+  html {
+    font-size: 15px;
+  }
+
+  .header-inner {
+    padding: 1rem;
+  }
+
+  .menu-btn {
+    left: 1rem;
+  }
+
+  .site-title {
+    font-size: 1.3rem;
+  }
+
+  main {
+    padding: 1.75rem 1rem;
+  }
+
+  main h2 {
+    font-size: 1.4rem;
+  }
+
+  .welcome-greeting {
+    font-size: 1.6rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}

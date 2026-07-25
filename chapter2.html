@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 2: When in Hell, You Need a Friend — A Writer's Block</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- MENU OVERLAY -->
+  <div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+
+  <!-- SLIDE-OUT MENU -->
+  <nav class="menu-panel" id="menuPanel">
+    <div class="menu-header">
+      <span class="menu-header-title">Menu</span>
+      <button class="menu-close" onclick="closeMenu()" aria-label="Close menu">&times;</button>
+    </div>
+    <ul class="menu-nav">
+      <li><a href="chapter1.html">Chapter 1: Man of the House</a></li>
+      <li><a href="chapter2.html" class="active">Chapter 2: When in Hell, You Need a Friend</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="contact.html">Contact Me</a></li>
+    </ul>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <button class="menu-btn" onclick="openMenu()" aria-label="Open menu">
+        <span class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        Menu
+      </button>
+      <a href="index.html" class="site-title">A Writer's Block</a>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="poem-header">
+      <h2>Chapter 2: When in Hell, You Need a Friend</h2>
+    </div>
+
+    <div class="poem-body">
+      <div class="stanza">
+        <div class="line bold">"WHEN IN HELL, YOU NEED A FRIEND"</div>
+        <div class="line">not someone who says they'll be there — someone there at the end.</div>
+        <div class="line">The war we fight's not only against powers and principles,</div>
+        <div class="line">it's against temptation itself — raw, personal, clinical.</div>
+        <div class="line">Our battlefields bring us closer to chaos, disaster, despair,</div>
+        <div class="line">and when you hit the bottom you find out who's actually there.</div>
+        <div class="line">Nobody warns you. Nobody sits you down and explains.</div>
+        <div class="line">Nobody tells you the worst bit isn't the death, it's the pain</div>
+        <div class="line">of losing hope. The end of dreaming. For all eternity.</div>
+        <div class="line">Not a metaphor. Not a lyric. That's what it did to me.</div>
+        <div class="line">But victory is always within reach,</div>
+        <div class="line">and I didn't read that in a book — that's what the scars teach.</div>
+      </div>
+
+      <div class="stanza">
+        <div class="line">Revelations — to him who overcomes I will give the right</div>
+        <div class="line">to sit with me on my throne, to step out of the night,</div>
+        <div class="line">as I overcame and sat with my father on his —</div>
+        <div class="line">that's the promise. That's the covenant. That's what redemption is.</div>
+      </div>
+
+      <div class="stanza">
+        <div class="line">This book and the ones that follow are based on a true story and real events.</div>
+        <div class="line">Not dressed up, not dramatised, not hidden behind a fence.</div>
+        <div class="line">I'm telling it now because not telling it would be the crime,</div>
+        <div class="line">and may God have mercy on my soul — I'm running out of time.</div>
+        <div class="line">Forgiveness is earnt through redemption, it's not freely given,</div>
+        <div class="line">not a gift, not a pardon, it's the price of keeping on living.</div>
+      </div>
+
+      <div class="stanza">
+        <div class="line">Dedicated to anyone it reaches, anyone who understands,</div>
+        <div class="line">anyone who feels its touch, in the pull, in the shaking of the hands.</div>
+        <div class="line">To my mother, my children, my friends, my family — every one,</div>
+        <div class="line">to anyone I've ever loved or lost beneath the sun.</div>
+        <div class="line">Those I've hated, those I've hurt, those I'm destined to meet,</div>
+        <div class="line">tomorrow or the day after, on some ordinary street.</div>
+      </div>
+
+      <div class="stanza">
+        <div class="line">The poetry is dedicated to none. Not you. Not them. It's mine.</div>
+        <div class="line">My only release from the pain, my only flatline</div>
+        <div class="line">between the torment and the breathing, the only thing I own,</div>
+        <div class="line">the only room I've got where I can be alone.</div>
+      </div>
+
+      <div class="stanza">
+        <div class="line">And my testament is for those who know no faith at all,</div>
+        <div class="line">who've stood at the edge and stared and waited for the fall,</div>
+        <div class="line">because "it can only be seen by the eyes of the blind"*,</div>
+        <div class="line">the therapist.</div>
+      </div>
+
+      <div class="stanza">
+        <div class="line bold">"THE BEGINNING IS THE END AND THE END ONLY EVER JUST THE BEGINNING"</div>
+        <div class="line">London. 2023. July.</div>
+      </div>
+
+      <div class="poem-footnote">* Tribute to the lyric in Billy Joel's "River of Dreams"</div>
+      <div class="poem-date">July, 2026</div>
+    </div>
+
+    <a href="index.html" class="back-link">← Back to Home</a>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; 2026 A Writer's Block | All Rights Reserved | <a href="terms-of-use.html">Terms of Use</a> | <a href="contact.html" class="footer-contact">Contact Me</a></span>
+      <span class="footer-logo">
+        <img src="AvId_Digital_Small.png" alt="Avid Digital">
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    function openMenu() {
+      document.getElementById('menuOverlay').classList.add('open');
+      document.getElementById('menuPanel').classList.add('open');
+    }
+    function closeMenu() {
+      document.getElementById('menuOverlay').classList.remove('open');
+      document.getElementById('menuPanel').classList.remove('open');
+    }
+  </script>
+</body>
+</html>

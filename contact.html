@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Me — A Writer's Block</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- MENU OVERLAY -->
+  <div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+
+  <!-- SLIDE-OUT MENU -->
+  <nav class="menu-panel" id="menuPanel">
+    <div class="menu-header">
+      <span class="menu-header-title">Menu</span>
+      <button class="menu-close" onclick="closeMenu()" aria-label="Close menu">&times;</button>
+    </div>
+    <ul class="menu-nav">
+      <li><a href="chapter1.html">Chapter 1: Man of the House</a></li>
+      <li><a href="chapter2.html">Chapter 2: When in Hell, You Need a Friend</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="contact.html" class="active">Contact Me</a></li>
+    </ul>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <button class="menu-btn" onclick="openMenu()" aria-label="Open menu">
+        <span class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        Menu
+      </button>
+      <a href="index.html" class="site-title">A Writer's Block</a>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <h2>Contact Me</h2>
+
+    <p>
+      I'd love to hear from you — whether it's feedback on the writing,
+      a suggestion, or just to say hello. Fill in the details below and
+      I'll get back to you.
+    </p>
+
+    <div class="contact-form">
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com">
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+        <span class="form-hint">Please provide either an email address or phone number (or both).</span>
+      </div>
+
+      <div class="form-group">
+        <label for="comments">Comments</label>
+        <textarea id="comments" name="comments" placeholder="Write your message here..."></textarea>
+      </div>
+
+      <button type="button" class="btn-send" onclick="handleSend()">Send</button>
+
+      <div class="form-success" id="formSuccess">
+        Thank you for your message! I'll be in touch soon.
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; 2026 A Writer's Block | All Rights Reserved | <a href="terms-of-use.html">Terms of Use</a> | <a href="contact.html" class="footer-contact">Contact Me</a></span>
+      <span class="footer-logo">
+        <img src="AvId_Digital_Small.png" alt="Avid Digital">
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    function openMenu() {
+      document.getElementById('menuOverlay').classList.add('open');
+      document.getElementById('menuPanel').classList.add('open');
+    }
+    function closeMenu() {
+      document.getElementById('menuOverlay').classList.remove('open');
+      document.getElementById('menuPanel').classList.remove('open');
+    }
+
+    function handleSend() {
+      var name = document.getElementById('name').value.trim();
+      var email = document.getElementById('email').value.trim();
+      var phone = document.getElementById('phone').value.trim();
+      var comments = document.getElementById('comments').value.trim();
+
+      if (!name) {
+        alert('Please enter your name.');
+        return;
+      }
+      if (!email && !phone) {
+        alert('Please provide either an email address or phone number.');
+        return;
+      }
+      if (!comments) {
+        alert('Please enter a message.');
+        return;
+      }
+
+      // Placeholder — email backend to be connected later
+      document.getElementById('formSuccess').style.display = 'block';
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('phone').value = '';
+      document.getElementById('comments').value = '';
+    }
+  </script>
+</body>
+</html>

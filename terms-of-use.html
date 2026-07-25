@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Use — A Writer's Block</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- MENU OVERLAY -->
+  <div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+
+  <!-- SLIDE-OUT MENU -->
+  <nav class="menu-panel" id="menuPanel">
+    <div class="menu-header">
+      <span class="menu-header-title">Menu</span>
+      <button class="menu-close" onclick="closeMenu()" aria-label="Close menu">&times;</button>
+    </div>
+    <ul class="menu-nav">
+      <li><a href="chapter1.html">Chapter 1: Man of the House</a></li>
+      <li><a href="chapter2.html">Chapter 2: When in Hell, You Need a Friend</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="contact.html">Contact Me</a></li>
+    </ul>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <button class="menu-btn" onclick="openMenu()" aria-label="Open menu">
+        <span class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        Menu
+      </button>
+      <a href="index.html" class="site-title">A Writer's Block</a>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <h2>Terms of Use</h2>
+
+    <p>
+      The poems published on this site are shared for personal enjoyment
+      and appreciation. Public domain works are presented as such; any
+      work still under copyright is included with permission or omitted
+      until permission is confirmed.
+    </p>
+
+    <p>
+      This page and its contents may not be reproduced for commercial
+      purposes without permission.
+    </p>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; 2026 A Writer's Block | All Rights Reserved | <a href="terms-of-use.html">Terms of Use</a> | <a href="contact.html" class="footer-contact">Contact Me</a></span>
+      <span class="footer-logo">
+        <img src="AvId_Digital_Small.png" alt="Avid Digital">
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    function openMenu() {
+      document.getElementById('menuOverlay').classList.add('open');
+      document.getElementById('menuPanel').classList.add('open');
+    }
+    function closeMenu() {
+      document.getElementById('menuOverlay').classList.remove('open');
+      document.getElementById('menuPanel').classList.remove('open');
+    }
+  </script>
+</body>
+</html>
