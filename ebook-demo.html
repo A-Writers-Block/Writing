@@ -6,289 +6,75 @@
   <title>eBook Demo — A Writer's Block</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    .demo-section {
-      margin-bottom: 3rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid var(--color-border);
-    }
-
-    .demo-section:last-of-type {
-      border-bottom: none;
-    }
-
-    .demo-section h3 {
-      font-family: var(--font-display);
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: var(--color-text);
-    }
-
-    .demo-badge {
-      display: inline-block;
-      font-family: var(--font-body);
-      font-size: 0.75rem;
-      font-weight: 500;
-      padding: 0.2rem 0.6rem;
-      border-radius: 3px;
-      margin-bottom: 1rem;
-      color: var(--color-white);
-      background-color: var(--color-accent);
-    }
-
-    .demo-description {
-      font-size: 0.95rem;
-      color: var(--color-text-muted);
-      margin-bottom: 1.25rem;
-    }
-
-    .btn-demo {
-      display: inline-block;
-      padding: 0.7rem 1.5rem;
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--color-white);
-      background-color: var(--color-accent);
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background-color 0.2s;
-      margin-right: 0.75rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .btn-demo:hover {
-      background-color: var(--color-accent-hover);
-    }
-
-    .btn-demo.outline {
-      background: transparent;
-      color: var(--color-accent);
-      border: 1px solid var(--color-accent);
-    }
-
-    .btn-demo.outline:hover {
-      background-color: var(--color-accent-light);
-    }
-
-    /* Interactive book viewer */
-    .book-container {
-      width: 100%;
-      max-width: 600px;
-      margin: 1.5rem auto;
-      perspective: 1200px;
-    }
-
-    .book {
-      position: relative;
-      width: 100%;
-      background: #fff;
-      border-radius: 4px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-      overflow: hidden;
-    }
-
-    .book-page {
-      padding: 2rem 1.5rem;
-      min-height: 400px;
-      font-family: 'Lora', Georgia, serif;
-      font-size: 0.95rem;
-      line-height: 1.8;
-      color: #2c2c2c;
-      display: none;
-    }
-
-    .book-page.active {
-      display: block;
-    }
-
-    .book-page h2 {
-      font-size: 1.4rem;
-      text-align: center;
-      margin-bottom: 0.3rem;
-    }
-
-    .book-page .page-subtitle {
-      text-align: center;
-      font-style: italic;
-      color: #6b6b6b;
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-    }
-
-    .book-page .title-page {
-      text-align: center;
-      padding-top: 3rem;
-    }
-
-    .book-page .title-page h1 {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-      font-family: 'Lora', Georgia, serif;
-    }
-
-    .book-page .title-page .subtitle {
-      font-style: italic;
-      color: #6b6b6b;
-      margin-bottom: 2rem;
-    }
-
-    .book-page .title-page .author {
-      font-size: 1.1rem;
-      margin-bottom: 3rem;
-    }
-
-    .book-page .title-page .year {
-      color: #6b6b6b;
-      font-size: 0.9rem;
-    }
-
-    .book-page .dedication {
-      text-align: center;
-      font-style: italic;
-      padding-top: 4rem;
-      font-size: 1.05rem;
-      line-height: 2;
-    }
-
-    .book-page .poem-line {
-      margin: 2px 0;
-    }
-
-    .book-page .poem-line.bold {
-      font-weight: 600;
-    }
-
-    .book-page .poem-line.italic {
-      font-style: italic;
-    }
-
-    .book-page .stanza-gap {
-      height: 1rem;
-    }
-
-    .book-page hr {
-      border: none;
-      border-top: 1px solid #d8d4cf;
-      margin: 1.5rem 3rem;
-    }
-
-    .book-page .footnote {
-      font-size: 0.8rem;
-      font-style: italic;
-      color: #6b6b6b;
-      margin-top: 1.5rem;
-    }
-
-    .book-page .page-num {
-      text-align: center;
-      font-size: 0.8rem;
-      color: #999;
-      margin-top: 1.5rem;
-    }
-
-    .book-controls {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.75rem 1.5rem;
-      background: #f5f3f0;
-      border-top: 1px solid #e8e5e1;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.85rem;
-      color: #6b6b6b;
-    }
-
-    .book-controls button {
-      background: none;
-      border: 1px solid #d8d4cf;
-      border-radius: 4px;
-      padding: 0.4rem 1rem;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.85rem;
-      color: #4a5a3a;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .book-controls button:hover {
-      background: #e8ece4;
-      border-color: #4a5a3a;
-    }
-
-    .book-controls button:disabled {
-      opacity: 0.3;
-      cursor: default;
-    }
-
-    .book-controls button:disabled:hover {
-      background: none;
-      border-color: #d8d4cf;
-    }
-
-    @media (max-width: 480px) {
-      .book-page {
-        padding: 1.25rem 1rem;
-        min-height: 350px;
-        font-size: 0.85rem;
-      }
-
-      .book-page .title-page h1 {
-        font-size: 1.4rem;
-      }
-    }
+    .demo-section { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--color-border); }
+    .demo-section:last-of-type { border-bottom: none; }
+    .demo-section h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .demo-badge { display: inline-block; font-family: var(--font-body); font-size: 0.75rem; font-weight: 500; padding: 0.2rem 0.6rem; border-radius: 3px; margin-bottom: 1rem; color: var(--color-white); background-color: var(--color-accent); }
+    .demo-description { font-size: 0.95rem; color: var(--color-text-muted); margin-bottom: 1.25rem; }
+    .btn-demo { display: inline-block; padding: 0.7rem 1.5rem; font-family: var(--font-body); font-size: 0.95rem; font-weight: 500; color: var(--color-white); background-color: var(--color-accent); border: none; border-radius: 4px; cursor: pointer; text-decoration: none; transition: background-color 0.2s; margin-right: 0.75rem; margin-bottom: 0.5rem; }
+    .btn-demo:hover { background-color: var(--color-accent-hover); }
+    .book-container { width: 100%; max-width: 600px; margin: 1.5rem auto; }
+    .book { position: relative; width: 100%; background: #fff; border-radius: 4px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); overflow: hidden; }
+    .book-page { padding: 2rem 1.5rem; min-height: 400px; font-family: 'Lora', Georgia, serif; font-size: 0.95rem; line-height: 1.8; color: #2c2c2c; display: none; }
+    .book-page.active { display: block; }
+    .book-page h2 { font-size: 1.4rem; text-align: center; margin-bottom: 1rem; }
+    .book-page .title-page { text-align: center; padding-top: 3rem; }
+    .book-page .title-page h1 { font-size: 1.8rem; margin-bottom: 0.5rem; font-family: 'Lora', Georgia, serif; }
+    .book-page .title-page .subtitle { font-style: italic; color: #6b6b6b; margin-bottom: 2rem; }
+    .book-page .title-page .author { font-size: 1.1rem; margin-bottom: 3rem; }
+    .book-page .title-page .year { color: #6b6b6b; font-size: 0.9rem; }
+    .book-page .poem-line { margin: 2px 0; }
+    .book-page .poem-line.italic { font-style: italic; }
+    .book-page .stanza-gap { height: 1rem; }
+    .book-page hr { border: none; border-top: 1px solid #d8d4cf; margin: 1.5rem 3rem; }
+    .book-page .page-num { text-align: center; font-size: 0.8rem; color: #999; margin-top: 1.5rem; }
+    .book-page .foreword-text { line-height: 1.9; }
+    .book-page .foreword-text p { margin-bottom: 1rem; }
+    .book-page .sign-off { font-style: italic; color: #4a5a3a; margin-top: 1.5rem; }
+    .book-page .contents-list p { font-size: 1.05rem; margin: 0.8rem 0 0.8rem 1rem; }
+    .book-controls { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem; background: #f5f3f0; border-top: 1px solid #e8e5e1; font-family: 'Inter', sans-serif; font-size: 0.85rem; color: #6b6b6b; }
+    .book-controls button { background: none; border: 1px solid #d8d4cf; border-radius: 4px; padding: 0.4rem 1rem; font-family: 'Inter', sans-serif; font-size: 0.85rem; color: #4a5a3a; cursor: pointer; transition: all 0.2s; }
+    .book-controls button:hover { background: #e8ece4; border-color: #4a5a3a; }
+    .book-controls button:disabled { opacity: 0.3; cursor: default; }
+    .book-controls button:disabled:hover { background: none; border-color: #d8d4cf; }
+    @media (max-width: 480px) { .book-page { padding: 1.25rem 1rem; min-height: 350px; font-size: 0.85rem; } .book-page .title-page h1 { font-size: 1.4rem; } }
   </style>
 </head>
 <body>
-
-  <!-- MENU OVERLAY -->
   <div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
-
-  <!-- SLIDE-OUT MENU -->
   <nav class="menu-panel" id="menuPanel">
     <div class="menu-header">
       <span class="menu-header-title">Menu</span>
       <button class="menu-close" onclick="closeMenu()" aria-label="Close menu">&times;</button>
     </div>
     <ul class="menu-nav">
-      <li><a href="chapter1.html">Chapter 1: Man of the House</a></li>
-      <li><a href="chapter2.html">Chapter 2: When in Hell, You Need a Friend</a></li>
+      <li><a href="number2.html">Number 2</a></li>
+      <li><a href="money-spider.html">Money Spider</a></li>
+      <li><a href="isaiah.html">Isaiah</a></li>
       <li><a href="about.html">About Me</a></li>
       <li><a href="contact.html">Contact Me</a></li>
+      <li><a href="ebook-demo.html" class="active">eBook Demo</a></li>
     </ul>
   </nav>
-
-  <!-- HEADER -->
   <header class="site-header">
     <div class="header-inner">
       <button class="menu-btn" onclick="openMenu()" aria-label="Open menu">
-        <span class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
+        <span class="hamburger"><span></span><span></span><span></span></span>
         Menu
       </button>
       <a href="index.html" class="site-title">A Writer's Block</a>
     </div>
   </header>
-
-  <!-- MAIN CONTENT -->
   <main>
     <h2>eBook Demo</h2>
-    <p>Three different ways to experience the poems in book format. This is a test page for review — it won't appear in the final site navigation.</p>
+    <p>Three different ways to experience the poems in book format.</p>
 
-    <!-- OPTION 1: Interactive Book -->
     <div class="demo-section">
       <span class="demo-badge">Option 1</span>
       <h3>Interactive Page-Flip Book</h3>
-      <p class="demo-description">A digital book experience right here on the website. Readers click or swipe to turn pages — works beautifully on mobile and desktop.</p>
-
+      <p class="demo-description">A digital book experience right here on the website. Click or swipe to turn pages.</p>
       <div class="book-container">
         <div class="book">
-          <!-- Page 1: Title -->
           <div class="book-page active" data-page="1">
             <div class="title-page">
               <h1>A Writer's Block</h1>
@@ -297,149 +83,104 @@
               <p class="year">2026</p>
             </div>
           </div>
-
-          <!-- Page 2: Foreword -->
           <div class="book-page" data-page="2">
             <h2>Foreword</h2>
-            <div style="margin-top: 1.5rem; line-height: 1.9;">
-              <p style="margin-bottom: 1rem;">For the first time, I would like to showcase some of the writings that I have been quietly scribing over the years. You may have seen me in various places with a pen and some piece of paper scribbling away. Well, on here is where it becomes real!</p>
-              <p style="margin-bottom: 1rem;">I have more of my writing coming over the weeks and months ahead, so watch out for more!</p>
-              <p style="font-style: italic; color: #4a5a3a; margin-top: 1.5rem;">Hasta la vista, baby!</p>
+            <div class="foreword-text">
+              <p>For the first time, I would like to showcase some of the writings that I have been quietly scribing over the years. You may have seen me in various places with a pen and some piece of paper scribbling away. Well, on here is where it becomes real!</p>
+              <p>I have more of my writing coming over the weeks and months ahead, so watch out for more!</p>
+              <p class="sign-off">Hasta la vista, baby!</p>
             </div>
           </div>
-
-          <!-- Page 3: Contents -->
           <div class="book-page" data-page="3">
             <h2>Contents</h2>
-            <div style="margin-top: 2rem; padding-left: 1rem;">
-              <p style="margin-bottom: 1rem; font-size: 1.05rem;">Chapter 1 — Man of the House</p>
-              <p style="margin-bottom: 1rem; font-size: 1.05rem;">Chapter 2 — When in Hell, You Need a Friend</p>
+            <div class="contents-list">
+              <p>Number 2</p>
+              <p>Money Spider</p>
+              <p>Isaiah</p>
             </div>
           </div>
-
-          <!-- Page 4: Chapter 1 start -->
           <div class="book-page" data-page="4">
-            <p class="page-subtitle">Chapter 1</p>
-            <h2>Man of the House</h2>
+            <h2>number 2</h2>
             <hr>
-            <div class="poem-line">Recite in the name of the lord who created,</div>
-            <div class="poem-line">created man from a clinging substance — complicated,</div>
-            <div class="poem-line">recite and your lord is the most generous,</div>
-            <div class="poem-line">most generous,</div>
-            <div class="poem-line">who taught by the pen, taught man what he knew not —</div>
-            <div class="poem-line">gave us every lesson that we never knew we'd got.</div>
+            <div class="poem-line">Recite in the name of the lord who created</div>
             <div class="stanza-gap"></div>
-            <div class="poem-line">This book is dedicated to my brother,</div>
-            <div class="poem-line bold">Edward James Clevet — there will never be another.</div>
-            <div class="poem-line">And care others are forged in darkness and held in fear,</div>
-            <div class="poem-line">ours was different, ours was built right here —</div>
-            <div class="poem-line">carved, shaped, then moulded in song,</div>
-            <div class="poem-line">dance, heartache, laughter — we've been at it all along.</div>
-            <div class="page-num">9</div>
+            <div class="poem-line">created man from a clinging substance</div>
+            <div class="stanza-gap"></div>
+            <div class="poem-line">recite and your lord is the most generous</div>
+            <div class="stanza-gap"></div>
+            <div class="poem-line">who taught by the pen taught man what he knew not This book is dedicated to my brother</div>
+            <div class="stanza-gap"></div>
+            <div class="poem-line">Edward James Clevet</div>
+            <div class="page-num">4</div>
           </div>
-
-          <!-- Page 4: Chapter 1 continued -->
           <div class="book-page" data-page="5">
-            <div class="poem-line">Tears, smiles and moments of joy between the pain,</div>
-            <div class="poem-line">the kind of memories you carry through the rain.</div>
-            <div class="poem-line">What developed was a loyalty that never floundered,</div>
-            <div class="poem-line">a trust that knows no betrayal, never countered,</div>
-            <div class="poem-line">and a friendship that has stood at the gates</div>
-            <div class="poem-line">and the test of time — through the worst of the worst of states.</div>
+            <div class="poem-line">some bonds are built with compassion love kindness and care others are forged in darkness and held in fear ours was carved shaped then moulded in song dance heartache laughter tears smiles and moments of joy developed was a loyalty that never floundered and a trust that knows no betrayal and a friendship that has stood at the gates and the test of time helped along the way with a double Irish malt whisky not for good measure but was the company we kept the world was our teacher the lessons were hard bleak even harsh and unfair but whoever said life was fare I am my brothers keeper and may the gods always be at your side and if they ever waver and abandon you and you find yourself alone know that I will always come for you and will always be in your corner in this life and the next all my love</div>
             <div class="stanza-gap"></div>
-            <div class="poem-line">Helped along the way with a double Irish malt whisky,</div>
-            <div class="poem-line">not for good measure — nah, that was just the company we'd keep, see.</div>
-            <div class="poem-line">The world was our teacher and the lessons hit us hard,</div>
-            <div class="poem-line">bleak, even harsh, unfair — every hand a losing card.</div>
-            <div class="poem-line">But whoever said life was fair? Nobody I've met.</div>
-            <div class="poem-line">And that's a lesson in itself that I won't forget.</div>
-            <div class="page-num">9</div>
+            <div class="poem-line">Richard this ones for you</div>
+            <div class="stanza-gap"></div>
+            <div class="poem-line italic">steelers wheel stuck in the middle with you</div>
+            <div class="stanza-gap"></div>
+            <div class="poem-line">chapter 1 man of the house</div>
+            <hr>
+            <div class="page-num">5</div>
           </div>
-
-          <!-- Page 5: Chapter 1 end -->
           <div class="book-page" data-page="6">
-            <div class="poem-line">I am my brother's keeper — that's not a line, that's law,</div>
-            <div class="poem-line">and may the gods always be at your side through every open door.</div>
-            <div class="poem-line">And if they ever waver and abandon you and you find yourself alone,</div>
-            <div class="poem-line">know that I will always come for you — that's carved into the bone.</div>
-            <div class="poem-line">I will always be in your corner, in this life and the next,</div>
-            <div class="poem-line">no hesitation, no conditions, no small print in the text.</div>
-            <div class="stanza-gap"></div>
-            <div class="poem-line italic">All my love,</div>
-            <div class="poem-line bold">Richard — this one's for you.</div>
-            <div class="stanza-gap"></div>
-            <div class="poem-line bold">"Stuck in the Middle with You"*</div>
+            <h2>Money spider</h2>
             <hr>
-            <div class="footnote">* Tribute to the song by Stealers Wheel</div>
-            <div class="footnote">July, 2026</div>
-            <div class="page-num">9</div>
+            <div class="poem-line">I remember laying on my prison bunk once flat on my belly on top of my mattress laying there looking at the floor</div>
+            <div class="stanza-gap"></div>
+            <div class="poem-line">my head was hanging off the end of the bed and my legs were dangling in the air I was just starring at the floor aimlessly I lost track of time I could of been of staring at the floor for hours for all I know and I remember a little spider crawling along the floor I remember thinking to myself I wonder where you are going little spider in such a hurry I just kept starring at him and watched him hurry towards the gap underneath the cell door and I realised he was also desperate to escape too</div>
+            <div class="page-num">6</div>
           </div>
-
-          <!-- Page 6: Chapter 2 start -->
           <div class="book-page" data-page="7">
-            <p class="page-subtitle">Chapter 2</p>
-            <h2>When in Hell, You Need a Friend</h2>
+            <div class="poem-line">I could of stomped on that little spiders head and squashed him scraping his remains off my boot</div>
+            <div class="stanza-gap"></div>
+            <div class="poem-line">killing all his dreams of freedom like mine were and crushing them into oblivion completely forgotten like my future which had become just shadows and dust</div>
+            <div class="stanza-gap"></div>
+            <div class="poem-line">but I let him run free</div>
+            <div class="stanza-gap"></div>
+            <div class="poem-line">and I knew right then one day my time would come too</div>
+            <div class="stanza-gap"></div>
+            <div class="poem-line">and I would also run free</div>
+            <div class="stanza-gap"></div>
+            <div class="poem-line">realising I still had one dream left</div>
+            <div class="stanza-gap"></div>
+            <div class="poem-line">all I had to do was keep running</div>
+            <div class="stanza-gap"></div>
+            <div class="poem-line">and pray no one stamped on my head</div>
+            <div class="stanza-gap"></div>
+            <div class="poem-line italic">yesterday The Beetles</div>
+            <div class="stanza-gap"></div>
+            <div class="poem-line">Dreams don't die people just stop dreaming</div>
             <hr>
-            <div class="poem-line bold">"WHEN IN HELL, YOU NEED A FRIEND"</div>
-            <div class="poem-line">not someone who says they'll be there — someone there at the end.</div>
-            <div class="poem-line">The war we fight's not only against powers and principles,</div>
-            <div class="poem-line">it's against temptation itself — raw, personal, clinical.</div>
-            <div class="poem-line">Our battlefields bring us closer to chaos, disaster, despair,</div>
-            <div class="poem-line">and when you hit the bottom you find out who's actually there.</div>
-            <div class="poem-line">Nobody warns you. Nobody sits you down and explains.</div>
-            <div class="poem-line">Nobody tells you the worst bit isn't the death, it's the pain</div>
-            <div class="poem-line">of losing hope. The end of dreaming. For all eternity.</div>
-            <div class="poem-line">Not a metaphor. Not a lyric. That's what it did to me.</div>
-            <div class="poem-line">But victory is always within reach,</div>
-            <div class="poem-line">and I didn't read that in a book — that's what the scars teach.</div>
-            <div class="page-num">9</div>
+            <div class="page-num">7</div>
           </div>
-
-          <!-- Page 7: Chapter 2 continued -->
           <div class="book-page" data-page="8">
-            <div class="poem-line">Revelations — to him who overcomes I will give the right</div>
-            <div class="poem-line">to sit with me on my throne, to step out of the night,</div>
-            <div class="poem-line">as I overcame and sat with my father on his —</div>
-            <div class="poem-line">that's the promise. That's the covenant. That's what redemption is.</div>
-            <div class="stanza-gap"></div>
-            <div class="poem-line">This book and the ones that follow are based on a true story and real events.</div>
-            <div class="poem-line">Not dressed up, not dramatised, not hidden behind a fence.</div>
-            <div class="poem-line">I'm telling it now because not telling it would be the crime,</div>
-            <div class="poem-line">and may God have mercy on my soul — I'm running out of time.</div>
-            <div class="poem-line">Forgiveness is earnt through redemption, it's not freely given,</div>
-            <div class="poem-line">not a gift, not a pardon, it's the price of keeping on living.</div>
-            <div class="stanza-gap"></div>
-            <div class="poem-line">Dedicated to anyone it reaches, anyone who understands,</div>
-            <div class="poem-line">anyone who feels its touch, in the pull, in the shaking of the hands.</div>
-            <div class="poem-line">To my mother, my children, my friends, my family — every one,</div>
-            <div class="poem-line">to anyone I've ever loved or lost beneath the sun.</div>
-            <div class="page-num">9</div>
-          </div>
-
-          <!-- Page 8: Chapter 2 end -->
-          <div class="book-page" data-page="9">
-            <div class="poem-line">Those I've hated, those I've hurt, those I'm destined to meet,</div>
-            <div class="poem-line">tomorrow or the day after, on some ordinary street.</div>
-            <div class="stanza-gap"></div>
-            <div class="poem-line">The poetry is dedicated to none. Not you. Not them. It's mine.</div>
-            <div class="poem-line">My only release from the pain, my only flatline</div>
-            <div class="poem-line">between the torment and the breathing, the only thing I own,</div>
-            <div class="poem-line">the only room I've got where I can be alone.</div>
-            <div class="stanza-gap"></div>
-            <div class="poem-line">And my testament is for those who know no faith at all,</div>
-            <div class="poem-line">who've stood at the edge and stared and waited for the fall,</div>
-            <div class="poem-line">because "it can only be seen by the eyes of the blind"*,</div>
-            <div class="poem-line">the therapist.</div>
-            <div class="stanza-gap"></div>
-            <div class="poem-line bold">"THE BEGINNING IS THE END AND THE END ONLY EVER JUST THE BEGINNING"</div>
-            <div class="poem-line">London. 2023. July.</div>
+            <h2>Isaiah</h2>
             <hr>
-            <div class="footnote">* Tribute to the lyric in Billy Joel's "River of Dreams"</div>
-            <div class="footnote">July, 2026</div>
+            <div class="poem-line">Isaiah</div>
+            <div class="stanza-gap"></div>
+            <div class="poem-line">why should you be beaten anymore why do you</div>
+            <div class="stanza-gap"></div>
+            <div class="poem-line">persist in rebellion</div>
+            <div class="stanza-gap"></div>
+            <div class="poem-line">your whole head is injured your whole heart afflicted</div>
+            <div class="stanza-gap"></div>
+            <div class="poem-line">from the sole of your foot to the top of your head there is no soundness only wounds and bruises and open sores not cleaned or bandaged.</div>
+            <div class="stanza-gap"></div>
+            <div class="poem-line">you are desolate</div>
+            <div class="stanza-gap"></div>
+            <div class="poem-line">and still you smoke that hell with your fire</div>
+            <div class="stanza-gap"></div>
+            <div class="poem-line">lord I still have clean air in my lungs to pollute</div>
+            <div class="page-num">8</div>
+          </div>
+          <div class="book-page" data-page="9">
+            <div class="poem-line">I can still crawl on my belly or drag my blistered feet across town my body is tired I'm exhausted frail and seem weak my mind is distorted but there's still blood flowing in my veins to poison the fire in my belly is yet to ignite I find no shelter from your bitter wind relentless rain and to you I curse daily with my sharp tongue with such vicious words of hatred I wish to live not yet I'm too afraid to die as I know what awaits me in death you ask why I persist I'm too cowardly to take my own life so I continue to struggle in pain completely lost and destitute hoping one day I shall be found and given a soft bed to lay my crown and maybe even one day find the peace I once knew as a young child but until that day I shall persist and live each day to be beaten relentlessly as I only find comfort in pain</div>
+            <hr>
             <div class="page-num">9</div>
           </div>
         </div>
-
         <div class="book-controls">
           <button id="prevBtn" onclick="prevPage()" disabled>← Previous</button>
           <span id="pageIndicator">Page 1 of 9</span>
@@ -448,84 +189,38 @@
       </div>
     </div>
 
-    <!-- OPTION 2: PDF Download -->
     <div class="demo-section">
       <span class="demo-badge">Option 2</span>
       <h3>Downloadable PDF Book</h3>
-      <p class="demo-description">A beautifully formatted A5 book with title page, dedication, chapters, page numbers, and decorative rules. Ready to print or share digitally.</p>
+      <p class="demo-description">A beautifully formatted A5 book with title page, foreword, contents, and poems. Ready to print or share.</p>
       <a href="awritersblock_book.pdf" class="btn-demo" download>Download PDF Book</a>
     </div>
 
-    <!-- OPTION 3: ePub Download -->
     <div class="demo-section">
       <span class="demo-badge">Option 3</span>
       <h3>ePub eBook</h3>
-      <p class="demo-description">Standard eBook format compatible with Kindle, Apple Books, Kobo, and all major eReaders. Includes a table of contents and reflowable text that adapts to any screen size.</p>
+      <p class="demo-description">Standard eBook format compatible with Kindle, Apple Books, Kobo, and all major eReaders.</p>
       <a href="awritersblock_book.epub" class="btn-demo" download>Download ePub</a>
     </div>
 
     <a href="index.html" class="back-link">← Back to Home</a>
   </main>
-
-  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-inner">
       <span>&copy; 2026 A Writer's Block | All Rights Reserved | <a href="terms-of-use.html">Terms of Use</a> | <a href="contact.html" class="footer-contact">Contact Me</a></span>
-      <span class="footer-logo">
-        <img src="AvId_Digital_Small.png" alt="Avid Digital">
-      </span>
+      <span class="footer-logo"><img src="AvId_Digital_Small.png" alt="Avid Digital"></span>
     </div>
   </footer>
-
   <script>
-    function openMenu() {
-      document.getElementById('menuOverlay').classList.add('open');
-      document.getElementById('menuPanel').classList.add('open');
-    }
-    function closeMenu() {
-      document.getElementById('menuOverlay').classList.remove('open');
-      document.getElementById('menuPanel').classList.remove('open');
-    }
-
-    // Book viewer
-    var currentPage = 1;
-    var totalPages = 9;
-
-    function showPage(num) {
-      document.querySelectorAll('.book-page').forEach(function(p) {
-        p.classList.remove('active');
-      });
-      document.querySelector('.book-page[data-page="' + num + '"]').classList.add('active');
-      document.getElementById('pageIndicator').textContent = 'Page ' + num + ' of ' + totalPages;
-      document.getElementById('prevBtn').disabled = (num === 1);
-      document.getElementById('nextBtn').disabled = (num === totalPages);
-    }
-
-    function nextPage() {
-      if (currentPage < totalPages) {
-        currentPage++;
-        showPage(currentPage);
-      }
-    }
-
-    function prevPage() {
-      if (currentPage > 1) {
-        currentPage--;
-        showPage(currentPage);
-      }
-    }
-
-    // Swipe support for mobile
+    function openMenu() { document.getElementById('menuOverlay').classList.add('open'); document.getElementById('menuPanel').classList.add('open'); }
+    function closeMenu() { document.getElementById('menuOverlay').classList.remove('open'); document.getElementById('menuPanel').classList.remove('open'); }
+    var currentPage = 1, totalPages = 9;
+    function showPage(num) { document.querySelectorAll('.book-page').forEach(function(p) { p.classList.remove('active'); }); document.querySelector('.book-page[data-page="' + num + '"]').classList.add('active'); document.getElementById('pageIndicator').textContent = 'Page ' + num + ' of ' + totalPages; document.getElementById('prevBtn').disabled = (num === 1); document.getElementById('nextBtn').disabled = (num === totalPages); }
+    function nextPage() { if (currentPage < totalPages) { currentPage++; showPage(currentPage); } }
+    function prevPage() { if (currentPage > 1) { currentPage--; showPage(currentPage); } }
     var touchStartX = 0;
-    var touchEndX = 0;
-    document.querySelector('.book').addEventListener('touchstart', function(e) {
-      touchStartX = e.changedTouches[0].screenX;
-    });
-    document.querySelector('.book').addEventListener('touchend', function(e) {
-      touchEndX = e.changedTouches[0].screenX;
-      if (touchStartX - touchEndX > 50) nextPage();
-      if (touchEndX - touchStartX > 50) prevPage();
-    });
+    document.querySelector('.book').addEventListener('touchstart', function(e) { touchStartX = e.changedTouches[0].screenX; });
+    document.querySelector('.book').addEventListener('touchend', function(e) { var diff = touchStartX - e.changedTouches[0].screenX; if (diff > 50) nextPage(); if (diff < -50) prevPage(); });
   </script>
 </body>
 </html>

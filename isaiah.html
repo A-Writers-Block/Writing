@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Isaiah — A Writer's Block</title>
+  <meta property="og:title" content="Isaiah — A Writer's Block">
+  <meta property="og:description" content="Poetry by Richie. Raw, unfiltered writing from the heart.">
+  <meta property="og:image" content="https://a-writers-block.github.io/Writing/LD-Writing_coffee_shop_No4.png">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- MENU OVERLAY -->
+  <div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+
+  <!-- SLIDE-OUT MENU -->
+  <nav class="menu-panel" id="menuPanel">
+    <div class="menu-header">
+      <span class="menu-header-title">Menu</span>
+      <button class="menu-close" onclick="closeMenu()" aria-label="Close menu">&times;</button>
+    </div>
+    <ul class="menu-nav">
+      <li><a href="number2.html">Number 2</a></li>
+      <li><a href="money-spider.html">Money Spider</a></li>
+      <li><a href="isaiah.html" class="active">Isaiah</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="contact.html">Contact Me</a></li>
+      <li><a href="ebook-demo.html">eBook Demo</a></li>
+    </ul>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <button class="menu-btn" onclick="openMenu()" aria-label="Open menu">
+        <span class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        Menu
+      </button>
+      <a href="index.html" class="site-title">A Writer's Block</a>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="poem-header">
+      <h2>Isaiah</h2>
+    </div>
+
+    <div class="poem-body">
+      <div class="stanza">
+        <div class="line">Isaiah</div>
+      </div>
+
+      <div class="stanza">
+        <div class="line">why should you be beaten anymore why do you</div>
+      </div>
+
+      <div class="stanza">
+        <div class="line">persist in rebellion</div>
+      </div>
+
+      <div class="stanza">
+        <div class="line">your whole head is injured your whole heart afflicted</div>
+      </div>
+
+      <div class="stanza">
+        <div class="line">from the sole of your foot to the top of your head there is no soundness only wounds and bruises and open sores not cleaned or bandaged.</div>
+      </div>
+
+      <div class="stanza">
+        <div class="line">you are desolate</div>
+      </div>
+
+      <div class="stanza">
+        <div class="line">and still you smoke that hell with your fire</div>
+      </div>
+
+      <div class="stanza">
+        <div class="line">lord I still have clean air in my lungs to pollute</div>
+      </div>
+
+      <div class="stanza">
+        <div class="line">I can still crawl on my belly or drag my blistered feet across town my body is tired I'm exhausted frail and seem weak my mind is distorted but there's still blood flowing in my veins to poison the fire in my belly is yet to ignite I find no shelter from your bitter wind relentless rain and to you I curse daily with my sharp tongue with such vicious words of hatred I wish to live not yet I'm too afraid to die as I know what awaits me in death you ask why I persist I'm too cowardly to take my own life so I continue to struggle in pain completely lost and destitute hoping one day I shall be found and given a soft bed to lay my crown and maybe even one day find the peace I once knew as a young child but until that day I shall persist and live each day to be beaten relentlessly as I only find comfort in pain</div>
+      </div>
+    </div>
+
+    <!-- SHARE -->
+    <div class="share-links">
+      <span class="share-label">Share this:</span>
+      <a href="javascript:void(0)" onclick="sharePoem()" class="share-btn">Share →</a>
+    </div>
+
+    <a href="index.html" class="back-link">← Back to Home</a>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; 2026 A Writer's Block | All Rights Reserved | <a href="terms-of-use.html">Terms of Use</a> | <a href="contact.html" class="footer-contact">Contact Me</a></span>
+      <span class="footer-logo">
+        <img src="AvId_Digital_Small.png" alt="Avid Digital">
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    function openMenu() {
+      document.getElementById('menuOverlay').classList.add('open');
+      document.getElementById('menuPanel').classList.add('open');
+    }
+    function closeMenu() {
+      document.getElementById('menuOverlay').classList.remove('open');
+      document.getElementById('menuPanel').classList.remove('open');
+    }
+    function sharePoem() {
+      if (navigator.share) {
+        navigator.share({ title: 'Isaiah — A Writer\'s Block', url: window.location.href });
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link copied to clipboard!');
+      }
+    }
+  </script>
+</body>
+</html>
